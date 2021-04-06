@@ -8,6 +8,7 @@
 
 class USpringArmComponent;
 class UCameraComponent;
+class APlayerController;
 /**
  * 
  */
@@ -22,6 +23,8 @@ private:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* Camera;
+
+	APlayerController* PlayerControllerPtr;
 
 	FVector MovementVecor;
 	FQuat Rotation;

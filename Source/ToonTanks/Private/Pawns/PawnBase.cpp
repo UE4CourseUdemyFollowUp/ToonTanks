@@ -4,6 +4,7 @@
 #include "Pawns/PawnBase.h"
 #include <Components/CapsuleComponent.h>
 #include <Components/SceneComponent.h>
+#include "Actors/ProjectileBase.h"
 
 // Sets default values
 APawnBase::APawnBase()
@@ -37,6 +38,14 @@ void APawnBase::RotateTurretAt(FVector LookAtTarget)
 void APawnBase::Fire()
 {
 	UE_LOG(LogTemp, Warning, TEXT("APawnBase::Fire()"));
+
+	if (ProjectileClass)
+	{
+		FVector Location = ProjectileSpawnPoint->GetComponentLocation();
+		FRotator Rotation = ProjectileSpawnPoint->GetComponentRotation();
+		AProjectileBase* Projectile = GetWorld()->SpawnActor<AProjectileBase>(ProjectileClass, Location, Rotation);
+		Projectile->SetOwner(this);
+	}
 }
 
 void APawnBase::HandleDestruction()

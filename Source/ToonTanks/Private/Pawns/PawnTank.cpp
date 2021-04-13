@@ -52,6 +52,11 @@ void APawnTank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &APawnTank::Fire);
 }
 
+void APawnTank::HandleDestruction()
+{
+	Super::HandleDestruction();
+}
+
 void APawnTank::CalculateMovementInput(float Value)
 {
 	MovementVecor = FVector(Value * MovementSpeed * GetWorld()->DeltaTimeSeconds, 0.f, 0.f);

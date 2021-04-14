@@ -35,4 +35,7 @@ protected:
 	void GameStart();
 	UFUNCTION(BlueprintImplementableEvent)
 	void GameOver(bool IsWin);
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Game Loop")
+	int32 StartDelay;
 };

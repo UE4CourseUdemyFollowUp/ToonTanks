@@ -7,6 +7,7 @@
 #include "TankGameModeBase.generated.h"
 
 class APawnTank;
+class APlayerControllerBase;
 /**
  * 
  */
@@ -20,6 +21,7 @@ private:
 	void HandleGameOver(bool IsWin);
 
 	APawnTank* PlayerTank;
+	APlayerControllerBase* PlayerControllerRef;
 	int32 TurretsAlive = 0;
 
 	int32 GetCurrentTurretCount() const;

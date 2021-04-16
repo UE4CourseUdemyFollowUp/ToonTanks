@@ -55,6 +55,15 @@ void APawnTank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 void APawnTank::HandleDestruction()
 {
 	Super::HandleDestruction();
+
+	bIsPlayerAlive = false;
+	SetActorHiddenInGame(true);
+	SetActorTickEnabled(false);
+}
+
+bool APawnTank::GetIsPlayerAlive() const
+{
+	return bIsPlayerAlive;
 }
 
 void APawnTank::CalculateMovementInput(float Value)

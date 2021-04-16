@@ -28,6 +28,7 @@ private:
 
 	FVector MovementVecor;
 	FQuat Rotation;
+	bool bIsPlayerAlive = true;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement", meta = (AllowPrivateAccess = "true"))
 	float MovementSpeed = 100.f;
@@ -52,6 +53,8 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	virtual void HandleDestruction() override;
+
+	bool GetIsPlayerAlive() const;
 
 protected:
 	// Called when the game starts or when spawned
